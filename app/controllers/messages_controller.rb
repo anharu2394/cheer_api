@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :update, :destroy]
+  before_action :set_message, only: [:show, :destroy]
 
   # GET /messages
   def index
@@ -19,15 +19,6 @@ class MessagesController < ApplicationController
 
     if @message.save
       render json: @message, status: :created, location: @message
-    else
-      render json: @message.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /messages/1
-  def update
-    if @message.update(message_params)
-      render json: @message
     else
       render json: @message.errors, status: :unprocessable_entity
     end
