@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :rewards
-  resources :targets
-  resources :messages
+  resources :messages, except: :update
   mount_devise_token_auth_for 'User', at: 'auth'
 end
